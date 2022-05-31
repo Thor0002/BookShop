@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<div class="container">
+    <form class="data" action="#" th:action="@{addUser}" th:object="${user}" method="post">
+        <label>
+            <input type="text" th:field="*{first_name}" placeholder="Фамилия" required/>
+        </label>
+        <label>
+            <input type="text" th:field="*{last_name}" placeholder="Имя" required/>
+        </label>
+        <label>
+            <input type="text" th:field="*{login}" placeholder="Логин" required/>
+        </label>
+        <label>
+            <input type="password" th:field="*{password}" placeholder="Пароль" required/>
+        </label>
+        <input class="top submit" value="Sign up" type="submit"/>
+    </form>
+</div>
+<script type="module" src="/static/js/calculation.js"></script>
+</body>
+</html>

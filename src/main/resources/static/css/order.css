@@ -1,0 +1,32 @@
+img {
+    width: 50px;
+    height: 70px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.author {
+    font-weight: lighter;
+    font-size: medium;
+}
+
+table {
+    display: table;
+    width: 100%;
+    empty-cells: show;
+}
+
+.sum {
+    background-color: #C4C4C4;;
+}
+
+.under {
+    display: block;
+}
+
+tr {
+    display:table-row;
+}

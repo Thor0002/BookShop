@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookInfo</title>
+    <link rel="stylesheet" th:href="@{/css/table.css}">
+    <link rel="stylesheet" th:href="@{/css/link.css}">
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}"/>
+</head>
+<body>
+    <button class="top" onclick="location.href='/logout'"> Log out</button>
+
+    <table>
+        <tbody>
+        <tr>
+            <td><img th:src="@{'/img/' + ${book.getCover()}}" alt="BookCover"></td>
+        </tr>
+        <tr>
+            <td><h2 class="title" th:text="${book.getTitle()}"> </h2></td>
+            <td><h6 th:text="${book.getAuthor()}"> Author </h6></td>
+            <td><span th:text="${book.getPrice()}"> Price </span></td>
+            <td><a th:href="@{/tocart/book/{id}(id=${book.getBook_id()})}"><button class="top">To cart</button></a></td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="top" onclick="location.href='/back'">К списку книг</button>
+</body>
+</html>

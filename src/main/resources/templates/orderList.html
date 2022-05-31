@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders </title>
+    <link rel="stylesheet" th:href="@{/css/order.css}">
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <link rel="stylesheet" th:href="@{/css/link.css}">
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}"/>
+</head>
+<body>
+<table>
+    <tbody>
+    <tr th:if="${orderList.isEmpty()}">
+        <td colspan="2"> No Books Available</td>
+    </tr>
+    <tr th:each="order : ${orderList}">
+        <td th:text="'Order ' + ${order.getId()}"></td>
+        <td th:if="${order.isPayed()}"> Payed</td>
+        <td th:if="${!(order.isPayed())}">Not payed</td>
+        <td><span th:if="${order.getSum() == null}" th:text="0"></span></td>
+        <td><span th:text="${order.getSum()}"> Price </span></td>
+        <td><span th:text="${order.getStatus()}"></span></td>
+        <td><a th:href="@{/orders/{id}(id=${order.getId()})}">
+            <button class="top">Show Order</button>
+        </a></td>
+    </tr>
+    </tbody>
+</table>
+<button class="top" onclick="location.href='/logout'"> Log out</button>
+<a th:href="@{/toBooks}">
+    <button class="top">To book list</button>
+</a>
+</body>
+</html>

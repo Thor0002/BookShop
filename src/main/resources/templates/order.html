@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your order</title>
+    <link rel="stylesheet" th:href="@{/css/order.css}">
+    <link rel="stylesheet" th:href="@{/css/link.css}">
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}"/>
+</head>
+<body>
+    <table>
+        <tbody>
+        <tr th:if="${bookList.isEmpty()}">
+            <td colspan="2"> No Books Available</td>
+        </tr>
+        <tr th:each="book : ${bookList}">
+            <td><img th:src="@{'/img/' + ${book.getCover()}}"></td>
+            <td class="under"><span class="title" th:text="${book.getTitle()}"> </span></td>
+            <td class="under"><span class="author" th:text="${book.getAuthor()}"> Author </span></td>
+            <td><span th:text="${book.getPrice()}"> Price </span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="sum"><span th:text="${sum}"></span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="red" th:if="${order.isPayed()}"> Payed </td>
+            <td class="green" th:if="${!(order.isPayed())}">Not payed</td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:if="${!(order.isPayed())}" th:href="@{/pay/{id}(id=${order.getId()})}">
+        <button class="top" type="button" th:href="@{/pay/{id}(id=${order.getId()})}">Pay</button>
+    </a>
+
+    <button class="top" type="button" onclick="location.href='/logout'"> Log out</button>
+    <button class="top" type="button" onclick="location.href='/back'">To Book List</button>
+</body>
+</html>

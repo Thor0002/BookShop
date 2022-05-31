@@ -1,0 +1,63 @@
+table, th, td {
+    border: 1px solid transparent;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 50px 0;
+}
+
+table tr {
+    /*display: table-cell;*/
+    display: inline-block;
+}
+
+table td {
+    text-align: center;
+    padding: 0 10px;
+    /*display: block;*/
+    display: block;
+}
+
+tbody, thead { display: inline-block; vertical-align: top; }
+
+img {
+    width: 150px;
+    height: 234px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+#search-form {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+#search-label {
+    display: inline-block;
+    justify-content: center;
+    width: 90%;
+    margin-left: 10px;
+    /*border-radius: 30%;*/
+}
+
+#search-input {
+    width: 50%;
+    border-radius: 30px;
+    height: 38px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.inline {
+    display: inline;
+    margin-left: 200px;
+}
+

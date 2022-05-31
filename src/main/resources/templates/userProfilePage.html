@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Profile</title>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+</head>
+<body>
+<h1 th:text="${user.getFirst_name()} + ' ' + ${user.getLast_name()}"></h1>
+
+    <button class="top" type="button" onclick="location.href='/orders'">Show my orders</button>
+    <button class="top" type="button" onclick="location.href='/cart'">Show my cart</button>
+    <button class="top" type="button" onclick="location.href='/logout'"> Log out</button>
+    <button class="top" type="button" onclick="location.href='/back'"> To book list </button>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Books</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/table.css}">
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <link rel="stylesheet" th:href="@{/css/link.css}">
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}"/>
+</head>
+<body>
+
+<form action="#" th:action="@{search}" th:object="${book}" method="post" id="search-form">
+    <label id="search-label">
+        <input id="search-input" type="text" th:field="*{title}">
+        <button class="top" type="submit">Search</button>
+
+        <div class="inline">
+            <button class="top" th:if="${!(authorized)}" type="button" onclick="location.href='/login'">Login</button>
+            <button class="top" th:if="${!(authorized)}" type="button" onclick="location.href='/signup'">Sign Up
+            </button>
+            <button class="top" th:if="${(authorized)}" type="button" onclick="location.href='/userProfile'"> Your
+                profile
+            </button>
+            <button class="top" th:if="${(authorized)}" type="button" onclick="location.href='/logout'"> Log out
+            </button>
+        </div>
+    </label>
+</form>
+
+
+<table>
+    <tbody>
+    <tr th:if="${bookList.isEmpty()}">
+        <td colspan="2"> No Books Available</td>
+    </tr>
+    <tr th:each="book : ${bookList}">
+        <td><img th:src="@{'/img/' + ${book.getCover()}}"></td>
+        <td><span class="title" th:text="${book.getTitle()}"> </span></td>
+        <td><span th:text="${book.getAuthor()}"> Author </span></td>
+        <td><span th:text="${book.getPrice()}"> Price </span></td>
+        <td><a th:href="@{/books/{id}(id=${book.getBook_id()})}">About</a></td>
+        <td><a th:if="${authorized}" th:href="@{/cart/books/{id}(id=${book.getBook_id()})}">
+            <button>To cart</button>
+        </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
